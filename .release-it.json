@@ -1,0 +1,18 @@
+{
+    "github": {
+        "release": true,
+        "assets": ["dist.zip"]
+    },
+    "npm": {
+        "publish": false
+    },
+    "git": {
+        "push": false,
+        "tagName": "v${version}",
+        "requireBranch": "main",
+        "changelog": "git log --merges --pretty=format:\"* %s (%h)\" ${from}...${to}"
+    },
+    "hooks": {
+        "after:release": ["git checkout -b release/${version}", "git push"]
+    }
+}
