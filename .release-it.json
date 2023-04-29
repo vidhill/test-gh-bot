@@ -1,18 +1,24 @@
 {
-    "github": {
-        "release": true,
-        "assets": ["dist.zip"]
-    },
-    "npm": {
-        "publish": false
-    },
-    "git": {
-        "push": false,
-        "tagName": "v${version}",
-        "requireBranch": "main",
-        "changelog": "git log --merges --pretty=format:\"* %s (%h)\" ${from}...${to}"
-    },
-    "hooks": {
-        "after:release": ["git checkout -b release/${version}", "git push -u origin HEAD", "git reset --hard origin/main" ]
-    }
+  "github": {
+    "release": true,
+    "assets": ["dist.zip"]
+  },
+  "npm": {
+    "publish": false
+  },
+  "git": {
+    "push": false,
+    "tagName": "v${version}",
+    "requireBranch": "main",
+    "changelog": "git log --merges --pretty=format:\"* %s (%h)\" ${from}...${to}"
+  },
+  "hooks": {
+    "after:release": [
+      "git checkout -b release/${version}",
+      "git push -u origin HEAD",
+      "git checkout main",
+      "git reset --hard origin/main",
+      "git checkout -b release/${version}"
+    ]
+  }
 }
