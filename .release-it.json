@@ -13,6 +13,7 @@
     "changelog": "git log --merges --pretty=format:\"* %s (%h)\" ${from}...${to}"
   },
   "hooks": {
+    "pre:release": ["git pull"],
     "after:release": [
       "git checkout -b release/${version}",
       "git push -u origin HEAD",
