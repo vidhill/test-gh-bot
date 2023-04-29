@@ -1,6 +1,6 @@
 {
   "name": "test-gh-bot",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Hello World test 4",
   "main": "index.js",
   "scripts": {
